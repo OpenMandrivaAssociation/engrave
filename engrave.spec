@@ -1,8 +1,6 @@
 %define	name	engrave
 %define	version	0.1.0
-%define release 0.%{cvsrel}.1mdk
-
-%define cvsrel 20060323
+%define release %mkrel 1
 
 %define major 	0
 %define libname %mklibname %{name} %major
@@ -15,9 +13,9 @@ Release: 	%{release}
 License: 	BSD
 Group: 		System/Libraries
 URL: 		http://get-e.org/
-Source: 	%{name}-%{cvsrel}.tar.bz2
+Source: 	%{name}-%{version}.tar.bz2
 BuildRoot: 	%{_tmppath}/%{name}-buildroot
-BuildRequires:	evas-devel ecore-devel
+BuildRequires:	evas-devel >= 0.9.9.038, ecore-devel >= 0.9.9.038
 BuildRequires:	flex bison
 BuildRequires:	multiarch-utils
 
@@ -45,7 +43,7 @@ Provides: %name-devel = %{version}-%{release}
 
 %prep
 rm -rf $RPM_BUILD_ROOT
-%setup -q -n %name
+%setup -q
 
 %build
 ./autogen.sh
