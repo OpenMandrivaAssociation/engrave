@@ -77,4 +77,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/*.la
 %{_includedir}/%name
 %{_bindir}/%name-config
+%multiarch_bindir/%name-config
 %multiarch %multiarch_bindir/%name-config
+%{_libdir}/pkgconfig/%name.pc
