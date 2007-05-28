@@ -1,8 +1,8 @@
-%define	name	engrave
-%define	version	0.1.0
+%define	name engrave
+%define	version 0.1.0
 %define release %mkrel 1
 
-%define major 	0
+%define major 0
 %define libname %mklibname %{name} %major
 %define libnamedev %mklibname %{name} %major -d
 
