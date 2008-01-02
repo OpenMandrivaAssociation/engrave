@@ -14,6 +14,7 @@ License: 	BSD
 Group: 		System/Libraries
 URL: 		http://get-e.org/
 Source: 	%{name}-%{version}.tar.bz2
+BuildRoot: 	%{_tmppath}/%{name}-buildroot
 BuildRequires:	evas-devel >= 0.9.9.038, ecore-devel >= 0.9.9.038
 BuildRequires:	flex bison
 BuildRequires:	multiarch-utils
