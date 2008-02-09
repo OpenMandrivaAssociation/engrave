@@ -1,10 +1,11 @@
 %define	name engrave
 %define	version 0.1.0
-%define release %mkrel 4
+%define cvs 20080208
+%define release %mkrel 1.%cvs.1
 
 %define major 0
 %define libname %mklibname %{name} %major
-%define libnamedev %mklibname %{name} %major -d
+%define libnamedev %mklibname %{name} -d
 
 Summary: 	Enlightenment eet file manipulation library
 Name: 		%{name}
@@ -12,12 +13,12 @@ Version: 	%{version}
 Release: 	%{release}
 License: 	BSD
 Group: 		System/Libraries
-URL: 		http://get-e.org/
-Source: 	%{name}-%{version}.tar.bz2
+URL: 		http://www.enlightenment.org/
+Source: 	%{name}-%{cvs}.tar.bz2
 BuildRoot: 	%{_tmppath}/%{name}-buildroot
-BuildRequires:	evas-devel >= 0.9.9.038, ecore-devel >= 0.9.9.038
+BuildRequires:	evas-devel
+BuildRequires:	ecore-devel
 BuildRequires:	flex bison
-BuildRequires:	multiarch-utils
 
 %description
 Engrave is a library for editing the contents of an edje .eet file.
@@ -42,8 +43,7 @@ Provides: %name-devel = %{version}-%{release}
 %{name} development headers and libraries
 
 %prep
-rm -rf $RPM_BUILD_ROOT
-%setup -q
+%setup -q -n %name
 
 %build
 ./autogen.sh
@@ -53,8 +53,6 @@ rm -rf $RPM_BUILD_ROOT
 %install
 rm -rf $RPM_BUILD_ROOT
 %makeinstall
-cp -v $RPM_BUILD_DIR/%name-%version/%name-config %buildroot/%_bindir/
-%multiarch_binaries %buildroot/%_bindir/%name-config
 
 %post -n %libname -p /sbin/ldconfig
 %postun -n %libname -p /sbin/ldconfig
@@ -77,7 +75,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/*.a
 %{_libdir}/*.la
 %{_includedir}/%name
-%{_bindir}/%name-config
-%multiarch_bindir/%name-config
-%multiarch %multiarch_bindir/%name-config
 %{_libdir}/pkgconfig/%name.pc
