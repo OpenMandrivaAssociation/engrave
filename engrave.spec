@@ -46,13 +46,13 @@ Provides: %name-devel = %{version}-%{release}
 %setup -q -n %name
 
 %build
-./autogen.sh
+NOCONFIGURE=1 ./autogen.sh
 %configure2_5x
 %make
 
 %install
 rm -rf $RPM_BUILD_ROOT
-%makeinstall
+%makeinstall_std
 
 %post -n %libname -p /sbin/ldconfig
 %postun -n %libname -p /sbin/ldconfig
