@@ -1,7 +1,7 @@
 %define	name engrave
 %define	version 0.1.0
 %define cvs 20080208
-%define release %mkrel %cvs.2
+%define release %mkrel %cvs.3
 
 %define major 0
 %define libname %mklibname %{name} %major
