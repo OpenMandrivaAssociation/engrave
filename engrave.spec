@@ -16,6 +16,11 @@ Group: 		System/Libraries
 URL: 		https://www.enlightenment.org/
 Source: 	%{name}-%{cvs}.tar.bz2
 BuildRoot: 	%{_tmppath}/%{name}-buildroot
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	evas-devel
 BuildRequires:	ecore-devel
 BuildRequires:	flex bison
